@@ -5,9 +5,9 @@ using OpenQA.Selenium.Support.UI;
 
 namespace March2023.Pages
 {
-    public class TMPage : CommonDriver
+    public class TMPage
     {
-        public void CreateTM()
+        public void CreateTM(IWebDriver driver)
         {
 
             // click on create new button
@@ -17,6 +17,7 @@ namespace March2023.Pages
             // select Time option from dropdown
             IWebElement dropdown = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]/span"));
             dropdown.Click();
+            Thread.Sleep(1000);
 
             IWebElement timeOption = driver.FindElement(By.XPath("//*[@id=\"TypeCode_listbox\"]/li[2]"));
             timeOption.Click();
@@ -53,7 +54,7 @@ namespace March2023.Pages
             Assert.That(newPrice.Text == "$12.00", "Actual price and expected price do not match.");
         }
 
-        public void EditTM()
+        public void EditTM(IWebDriver driver)
         {
             Thread.Sleep(2000);
             IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
@@ -114,6 +115,7 @@ namespace March2023.Pages
             //check if Time record has been edited
             IWebElement goToEditLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             goToEditLastPageButton.Click();
+            Thread.Sleep(1500);
 
             IWebElement editCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 
@@ -121,7 +123,7 @@ namespace March2023.Pages
              
         }
 
-        public void DeleteTM()
+        public void DeleteTM(IWebDriver driver)
         {
             Thread.Sleep(4000);
             IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
@@ -145,10 +147,10 @@ namespace March2023.Pages
             //Popup window Delete confirmation
             Thread.Sleep(1000);
             driver.SwitchTo().Alert().Accept();
+            Thread.Sleep(2000);
 
             //check the record deleted successfully
             IWebElement deleteCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-
             Assert.That(deleteCode.Text != "TenyIC23Edit", "Record hasn't been deleted");
         }
     }

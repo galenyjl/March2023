@@ -4,9 +4,9 @@ using OpenQA.Selenium;
 
 namespace March2023.Pages
 {
-    public class HomePage : CommonDriver
+    public class HomePage
     {
-        public void GoToTMPage()
+        public void GoToTMPage(IWebDriver driver)
         {
             // navigate to time and material module
             IWebElement administration = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a/span"));
@@ -17,7 +17,7 @@ namespace March2023.Pages
             tmOption.Click();
         }
 
-        public void GoToEmployeePage() 
+        public void GoToEmployeePage(IWebDriver driver) 
         {
             // code to navigate to Employee page
         }

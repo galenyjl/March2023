@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace March2023.Pages
 {
-    public class EmployeePage : CommonDriver
+    public class EmployeePage
     {
-        public void CreateEmployee()
+        public void CreateEmployee(IWebDriver driver)
         {
             // code to create a new employee record
         }
 
-        public void EditEmployee()
+        public void EditEmployee(IWebDriver driver)
         {
             // code edit an existing employee record
         }
 
-        public void DeleteEmployee()
+        public void DeleteEmployee(IWebDriver driver)
         {
             // code to delete an existing employee record
         }
