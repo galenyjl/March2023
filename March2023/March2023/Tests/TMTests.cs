@@ -22,7 +22,7 @@ namespace March2023.Tests
         public void EditTM_Test()
         {
             homePageObj.GoToTMPage(driver);
-            tmPageObject.EditTM(driver);
+            //tmPageObject.EditTM(driver);
         }
 
         [Test, Order (3), Description("This test checks if a user is able to delete an existing TM record")]
